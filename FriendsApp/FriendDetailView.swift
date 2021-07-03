@@ -36,10 +36,22 @@ struct FriendDetailView: View {
                 .font(.system(size: 24))
                 .padding()
             
-            Spacer()
-        }
-        .navigationTitle(friend.name)
+            VStack(alignment: .leading) {
+                Text("Attack")
+                Slider(value: $friend.attack,
+                       in: 0...15,
+                       step: 1)
+            }
+            Text("Defence")
+            Slider(value: $friend.defence,
+                   in: 0...15,
+                   step: 1)
+                .padding()
+        
+        Spacer()
     }
+    .navigationTitle(friend.name)
+}
 }
 
 struct FriendDetailView_Previews: PreviewProvider {
@@ -47,6 +59,8 @@ struct FriendDetailView_Previews: PreviewProvider {
         FriendDetailView(friend: .constant(Friend(name: "Daksh Thapar",
                                                   icon: "pc",
                                                   school: "SST",
-                                                  slothImage: "sloth1")))
+                                                  slothImage: "sloth1",
+                                                  attack: 10,
+                                                  defence: 10)))
     }
 }
