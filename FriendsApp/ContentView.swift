@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    var friends = [Friend(name: "Swift Dude",
+    @State var friends = [Friend(name: "Swift Dude",
                           icon: "zzz",
                           school: "Tinkercademy",
                           slothImage: "sloth3"),
@@ -24,14 +24,16 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            List(friends) { friend in
-                NavigationLink(destination: FriendDetailView(friend: friend)) {
-                    Image(systemName: friend.icon)
+            List (0..<friends.count) { index in
+                NavigationLink(destination: FriendDetailView(friend: $friends[index])) {
+                    Image(systemName: friends[index].icon)
                     
                     VStack(alignment: .leading) {
-                        Text(friend.name)
+                        Text(friends[index].name)
                             .bold()
-                        Text(friend.school)
+                        HStack {
+                            Text(friends[index].school)
+                        }
                     }
                 }
             }

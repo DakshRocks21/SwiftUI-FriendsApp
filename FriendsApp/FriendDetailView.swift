@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FriendDetailView: View {
     
-    var friend: Friend
+    @Binding var friend: Friend
     
     var body: some View {
         VStack(spacing: 0) {
@@ -44,9 +44,9 @@ struct FriendDetailView: View {
 
 struct FriendDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FriendDetailView(friend: Friend(name: "Daksh Thapar",
-                                        icon: "pc",
-                                        school: "SST",
-                                        slothImage: "sloth1"))
+        FriendDetailView(friend: .constant(Friend(name: "Daksh Thapar",
+                                                  icon: "pc",
+                                                  school: "SST",
+                                                  slothImage: "sloth1")))
     }
 }
