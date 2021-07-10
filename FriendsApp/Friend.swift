@@ -8,6 +8,7 @@
 import Foundation
 
 struct Friend: Identifiable {
+    
     var id = UUID()
     
     var name: String
@@ -16,6 +17,9 @@ struct Friend: Identifiable {
     
     var slothImage: String
     
-    var attack: Double
-    var defence: Double
+    var attack: Double = .random(in: 0...15)
+    var defence: Double = .random(in: 0...15)
+    
+    var types: [FriendType]
+    
 }

@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+let heroPicHeight: CGFloat = 300
+let profilePicSize: CGFloat = 150
+
 struct FriendDetailView: View {
     
     @Binding var friend: Friend
@@ -16,24 +19,32 @@ struct FriendDetailView: View {
             VStack(spacing: 0) {
                 Image(friend.slothImage)
                     .resizable()
-                    .scaledToFill()
-                    .frame(height: 300)
-                    .scaledToFit()
+                    .frame(height: heroPicHeight)
                 
                 Image(friend.name)
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 250, height: 250)
+                    .frame(width: profilePicSize, height: profilePicSize)
                     .mask(Circle())
-                    .overlay(
-                        Circle()
-                            .stroke(lineWidth: 8)
-                            .foregroundColor(.white)
-                    )
-                    .offset(x: 0, y: -250 / 2)
-                    .shadow(radius: 6)
-                    .padding(.bottom, -250 / 2)
+                    .overlay(Circle().stroke(lineWidth: 10).foregroundColor(.white))
+                    .offset(x: 0, y: -profilePicSize/2)
+                    .shadow(radius: 10)
+                    .padding(.bottom, -profilePicSize/2 + 20)
                 
+                
+                HStack {
+                    ForEach(friend.types, id: \.rawValue) { type in
+                        Label(type.rawValue, systemImage: type.getSymbolName())
+                            .padding(10)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                }
+                .padding()
+
+                
+                // Can also use HStack, or a Label
                 Text("\(Image(systemName: friend.icon)) \(friend.school)")
                     .font(.system(size: 24))
                     .padding()
@@ -43,13 +54,14 @@ struct FriendDetailView: View {
                     Slider(value: $friend.attack,
                            in: 0...15,
                            step: 1)
+                    
+                    Text("Defence")
+                    Slider(value: $friend.defence,
+                           in: 0...15,
+                           step: 1)
                 }
-                Text("Defence")
-                Slider(value: $friend.defence,
-                       in: 0...15,
-                       step: 1)
-                    .padding()
-                
+                .padding()
+
                 Spacer()
             }
             .navigationTitle(friend.name)
@@ -59,11 +71,9 @@ struct FriendDetailView: View {
 
 struct FriendDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FriendDetailView(friend: .constant(Friend(name: "Daksh Thapar",
-                                                  icon: "pc",
-                                                  school: "SST",
-                                                  slothImage: "sloth1",
-                                                  attack: 10,
-                                                  defence: 10)))
+        FriendDetailView(friend: .constant(Friend(name: "Daksh",
+                                        icon: "pc",
+                                        school: "SST",
+                                        slothImage: "sloth1", types: [.ice, .water, .electric])))
     }
 }

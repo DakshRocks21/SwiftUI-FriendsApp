@@ -13,6 +13,7 @@
 		FE737DF6268FF385002894D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE737DF5268FF385002894D8 /* Preview Assets.xcassets */; };
 		FE737DFE268FF3D3002894D8 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE737DFD268FF3D3002894D8 /* Friend.swift */; };
 		FE737E00268FF3F5002894D8 /* FriendDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE737DFF268FF3F5002894D8 /* FriendDetailView.swift */; };
+		FEA806302699379A005DED7D /* FriendType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA8062F2699379A005DED7D /* FriendType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		FE737DF7268FF385002894D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE737DFD268FF3D3002894D8 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		FE737DFF268FF3F5002894D8 /* FriendDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailView.swift; sourceTree = "<group>"; };
+		FEA8062F2699379A005DED7D /* FriendType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				FE737DEE268FF380002894D8 /* FriendsAppApp.swift */,
+				FEA8062F2699379A005DED7D /* FriendType.swift */,
 				FE737DF0268FF380002894D8 /* ContentView.swift */,
 				FE737DFD268FF3D3002894D8 /* Friend.swift */,
 				FE737DFF268FF3F5002894D8 /* FriendDetailView.swift */,
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEA806302699379A005DED7D /* FriendType.swift in Sources */,
 				FE737DFE268FF3D3002894D8 /* Friend.swift in Sources */,
 				FE737DF1268FF380002894D8 /* ContentView.swift in Sources */,
 				FE737DEF268FF380002894D8 /* FriendsAppApp.swift in Sources */,
